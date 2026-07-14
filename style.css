@@ -191,16 +191,11 @@ html { -webkit-text-size-adjust: 100%; }
 }
 
 /* Project cards on the home page had no hover state at all — they read as
-   static images rather than links. The card lifts, the image pushes in behind
-   its frame (the frame already clips with overflow:hidden), and a soft shadow
-   drops underneath. Same vocabulary as .shot and .hobby-polaroid. */
-.home-project { transition: transform 0.25s ease; }
-.home-project .home-project-img { transition: box-shadow 0.25s ease; }
-.home-project img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.home-project:hover { transform: translateY(-6px); }
-.home-project:hover .home-project-img { box-shadow: 0 18px 30px rgba(26, 23, 18, 0.18); }
-.home-project:hover img { transform: scale(1.06); }
-.home-project:active { transform: translateY(-2px); }
+   static images rather than links. Just a slow, slight zoom inside the frame
+   (which already clips with overflow:hidden) and a touch of dimming. */
+.home-project img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease; }
+.home-project:hover img { transform: scale(1.04); opacity: 0.88; }
+.home-project:active img { opacity: 0.78; }
 
 @media (min-width: 961px) {
   /* Sa sva četiri otvorena akordeona sidebar naraste preko visine ekrana, pa
