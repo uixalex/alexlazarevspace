@@ -63,9 +63,8 @@ body { margin: 0; background: #fdf6ea; }
     .nav-link:hover { color: rgba(255,153,220,0.75) !important; }
     .btn { transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(26,23,18,0.25); opacity: 0.92; }
-    .work-card { transition: opacity 0.15s ease; }
-    .work-card:hover { opacity: 0.75; }
-    .work-card:active { opacity: 0.55; }
+    /* Hover handled at the bottom of this file, on the image rather than the
+       whole card — dimming the title and description with it read as disabled. */
     .footer-letter { display:inline-block; font-family:'Newsreader',serif; transition: color 0.2s ease, font-family 0.2s ease, transform 0.2s ease; cursor:default; }
     .footer-letter:hover { font-family:'Manrope',sans-serif; font-style:italic; transform: translateY(-6px); }
     .footer-letter.fl-0:hover { color:#D8F382; }
@@ -190,12 +189,16 @@ html { -webkit-text-size-adjust: 100%; }
   .hero-title { font-size: 36px !important; }
 }
 
-/* Project cards on the home page had no hover state at all — they read as
-   static images rather than links. Just a slow, slight zoom inside the frame
-   (which already clips with overflow:hidden) and a touch of dimming. */
-.home-project img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease; }
-.home-project:hover img { transform: scale(1.04); opacity: 0.88; }
-.home-project:active img { opacity: 0.78; }
+/* Project cards (home + work) had no hover state worth the name — the home
+   ones did nothing, the work ones dimmed the whole card, text included. Just a
+   slow, slight zoom inside the frame (which already clips with overflow:hidden)
+   and a touch of dimming, on the image alone. */
+.home-project img,
+.work-card img { transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.3s ease; }
+.home-project:hover img,
+.work-card:hover img { transform: scale(1.04); opacity: 0.88; }
+.home-project:active img,
+.work-card:active img { opacity: 0.78; }
 
 @media (min-width: 961px) {
   /* Sa sva četiri otvorena akordeona sidebar naraste preko visine ekrana, pa
