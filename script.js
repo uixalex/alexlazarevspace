@@ -40,9 +40,9 @@ document.querySelectorAll('.site-nav').forEach((nav) => {
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
   nav.appendChild(btn);
-  // close after tapping a link
+  // close after tapping a link, or tapping the empty overlay backdrop
   links.addEventListener('click', (e) => {
-    if (e.target.closest('a')) {
+    if (e.target.closest('a') || e.target === links) {
       nav.classList.remove('nav-open');
       btn.setAttribute('aria-expanded', 'false');
     }
