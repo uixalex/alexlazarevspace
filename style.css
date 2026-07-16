@@ -245,30 +245,25 @@ html { -webkit-text-size-adjust: 100%; }
 .footer-link.fl-instagram:hover { color: #FF99DC; } /* pink */
 .footer-link.fl-dribbble:hover  { color: #FF99DC; } /* pink */
 
-/* --- Mobile burger menu: full-screen overlay (appended last so it wins the duplicated 640px blocks above) --- */
+/* --- Mobile burger menu: clean compact dropdown (appended last so it wins the duplicated 640px blocks above) --- */
 @media (max-width: 640px) {
   .site-nav { position: relative; z-index: 100; }
-  .nav-toggle { display: flex; position: relative; z-index: 95; }
-  /* keep the logo (div on home, a elsewhere) above the overlay */
-  .site-nav > :first-child { position: relative; z-index: 95; }
-
+  .nav-toggle { display: flex; }
   .nav-links {
-    display: flex !important; flex-direction: column !important;
-    align-items: center !important; justify-content: center !important; gap: 6px !important;
-    position: fixed; inset: 0; z-index: 90; background: #fdf6ea; padding: 0 24px !important;
-    opacity: 0; visibility: hidden; transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2,0.7,0.2,1), visibility 0s linear 0.3s;
+    display: none !important; position: absolute; top: calc(100% + 4px); right: 20px;
+    flex-direction: column !important; align-items: stretch !important; gap: 0 !important;
+    background: #fdf6ea; border: 1px solid rgba(26,23,18,0.10);
+    border-radius: 10px; box-shadow: 0 12px 28px rgba(26,23,18,0.14);
+    padding: 8px !important; min-width: 150px;
   }
-  .site-nav.nav-open .nav-links {
-    opacity: 1; visibility: visible; transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2,0.7,0.2,1);
-  }
+  .site-nav.nav-open .nav-links { display: flex !important; }
   .nav-links a {
-    font-family: 'Newsreader', serif !important; font-weight: 500 !important;
-    font-size: 40px !important; line-height: 1.15 !important; padding: 10px 0 !important;
-    color: #1a1712 !important; transition: color 0.25s ease, transform 0.25s ease;
+    display: block; text-align: right;
+    font-size: 17px !important; font-weight: 700 !important; padding: 11px 14px !important;
+    color: #1a1712 !important; transition: color 0.2s ease;
   }
-  .nav-links a:hover, .nav-links a:active { color: #FF99DC !important; transform: translateY(-2px); }
+  /* just tint the letters pink (with opacity) so you can tell you tapped it */
+  .nav-links a:hover, .nav-links a:active { color: rgba(255,153,220,0.75) !important; }
 }
 @media (max-width: 370px) {
   .hero-title { font-size: 38px !important; }
