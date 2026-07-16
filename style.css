@@ -20,6 +20,13 @@
     .float-fast { animation: floatFast 2.4s ease-in-out infinite; transition: transform 0.2s ease; }
     .float-slow:hover, .float-med:hover, .float-fast:hover { animation-play-state: paused; transform: scale(1.12) rotate(-4deg); }
 
+    /* Mobile burger menu (button injected by script.js; hidden on desktop) */
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 40px; height: 40px; padding: 8px; margin: -8px -8px -8px 0; background: none; border: 0; cursor: pointer; }
+    .nav-toggle span { display: block; width: 24px; height: 2.5px; background: #1a1712; border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease; }
+    .site-nav.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+    .site-nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .site-nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
 body { margin: 0; background: #fdf6ea; }
     ::selection { background: #4a6b4f; color: #fdf6ea; }
 
@@ -38,8 +45,8 @@ html { -webkit-text-size-adjust: 100%; }
     @media (max-width: 640px) {
       .site-nav { padding: 20px 20px !important; flex-wrap: wrap; gap: 12px; }
       .nav-links { gap: 18px !important; font-size: 14px !important; }
-      .hero { padding: 56px 20px !important; }
-      .hero-title { font-size: 34px !important; }
+      .hero { padding: 76px 22px !important; }
+      .hero-title { font-size: 42px !important; }
       .hero-polaroid-wrap { width: 100% !important; }
       .hero-polaroid-wrap > div { width: min(380px, 84vw) !important; }
       .section-pad { padding-left: 20px !important; padding-right: 20px !important; }
@@ -54,8 +61,13 @@ html { -webkit-text-size-adjust: 100%; }
       .hobby-polaroid { width: 44vw !important; max-width: 220px; }
     }
     @media (max-width: 420px) {
-      .hero-title { font-size: 28px !important; }
+      .hero { padding: 64px 20px !important; }
+      .hero-title { font-size: 34px !important; }
       .work-grid, .testi-grid { gap: 16px !important; }
+    }
+    @media (max-width: 370px) {
+      .hero { padding: 68px 18px !important; }
+      .hero-title { font-size: 38px !important; }
     }
 
 body { margin: 0; background: #fdf6ea; }
@@ -210,4 +222,54 @@ html { -webkit-text-size-adjust: 100%; }
     overflow-y: auto;
     overscroll-behavior: contain;
   }
+}
+
+/* Footer social links — icon + label, colour on hover in the site palette */
+.footer-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  color: #fdf6ea;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.footer-link svg {
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.footer-link:hover { transform: translateX(-3px); }
+.footer-link:hover svg { transform: scale(1.18) rotate(-6deg); }
+.footer-link.fl-email:hover     { color: #D8F382; } /* lime */
+.footer-link.fl-linkedin:hover  { color: #e9e4fb; } /* lavender */
+.footer-link.fl-instagram:hover { color: #FF99DC; } /* pink */
+.footer-link.fl-dribbble:hover  { color: #FF99DC; } /* pink */
+
+/* --- Mobile burger menu: full-screen overlay (appended last so it wins the duplicated 640px blocks above) --- */
+@media (max-width: 640px) {
+  .site-nav { position: relative; z-index: 100; }
+  .nav-toggle { display: flex; position: relative; z-index: 95; }
+  /* keep the logo (div on home, a elsewhere) above the overlay */
+  .site-nav > :first-child { position: relative; z-index: 95; }
+
+  .nav-links {
+    display: flex !important; flex-direction: column !important;
+    align-items: center !important; justify-content: center !important; gap: 6px !important;
+    position: fixed; inset: 0; z-index: 90; background: #fdf6ea; padding: 0 24px !important;
+    opacity: 0; visibility: hidden; transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2,0.7,0.2,1), visibility 0s linear 0.3s;
+  }
+  .site-nav.nav-open .nav-links {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.2,0.7,0.2,1);
+  }
+  .nav-links a {
+    font-family: 'Newsreader', serif !important; font-weight: 500 !important;
+    font-size: 40px !important; line-height: 1.15 !important; padding: 10px 0 !important;
+    color: #1a1712 !important; transition: color 0.25s ease, transform 0.25s ease;
+  }
+  .nav-links a:hover, .nav-links a:active { color: #FF99DC !important; transform: translateY(-2px); }
+}
+@media (max-width: 370px) {
+  .hero-title { font-size: 38px !important; }
 }
