@@ -300,20 +300,7 @@ html { -webkit-text-size-adjust: 100%; }
   .hero-badge:hover img { transform: none; }
 }
 
-/* ===== Beyond / About: scattered hobby photos ===== */
-.beyond-scatter { position:relative; height:448px; }
-.scatter-item { position:absolute; }
-.scatter-photo { border:6px solid #fffdf8; border-radius:10px; overflow:hidden; box-shadow:0 16px 32px rgba(35,31,26,.22), 0 3px 6px rgba(35,31,26,.12); transition: box-shadow .25s ease; }
-.scatter-photo img { display:block; width:100%; aspect-ratio:1/1; object-fit:cover; filter:saturate(.95) contrast(1.03); }
-.si-1 { top:14px; left:6px; width:202px; }
-.si-2 { top:0; left:224px; width:190px; }
-.si-3 { top:208px; left:40px; width:190px; z-index:1; }
-.si-4 { top:236px; left:248px; width:202px; z-index:1; }
-.scatter-item:hover { z-index:5; }
-.scatter-item:hover .scatter-photo { box-shadow:0 22px 44px rgba(35,31,26,.3), 0 4px 8px rgba(35,31,26,.16); }
+/* ===== About + Giving back: two-column text ===== */
 @media (max-width: 860px) {
-  .beyond-grid { grid-template-columns:1fr !important; gap:40px !important; }
-  .beyond-scatter { position:static; height:auto; display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:420px; margin:0 auto; }
-  .scatter-item { position:static; width:auto !important; }
-  .mentor-grid { grid-template-columns:1fr !important; gap:36px !important; }
+  .about-grid { grid-template-columns:1fr !important; gap:40px !important; }
 }
