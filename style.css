@@ -224,7 +224,29 @@ html { -webkit-text-size-adjust: 100%; }
     max-height: calc(100vh - 64px);
     overflow-y: auto;
     overscroll-behavior: contain;
+    /* Traka je vizuelno smetala pri skrolovanju stranice — skrivamo je, a
+       skrolovanje sadržaja i dalje radi (točkić/trackpad/tastatura). */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
+  .cs-sidebar::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
+  /* Širi sidebar — na 280px su Deliverables/Industry redovi prelamali. */
+  .cs-grid { grid-template-columns: 320px 1fr !important; }
+}
+
+/* ===== Case study sidebar: krupniji tekst i malo više prostora =====
+   Vrednosti su inline u HTML-u svakog case studyja, pa ih hvatamo preko
+   [style*=...] — tako važi i za nove stranice napravljene po istom šablonu,
+   bez diranja markupa. */
+.cs-sidebar > div { padding: 22px 24px !important; }
+.cs-sidebar [style*="font-size:11px"]   { font-size: 12px !important; }   /* ROLE / TOOLS labele */
+.cs-sidebar [style*="font-size:13px"]   { font-size: 15px !important; }   /* naslovi sekcija */
+.cs-sidebar [style*="font-size:13.5px"] { font-size: 15px !important; }   /* vrednosti i pasusi */
+.cs-sidebar [style*="font-size:14.5px"] { font-size: 15.5px !important; } /* Visit live site */
+/* +/✕ toggle prati krupniji naslov (na telefonu ostaje 26px iz ranijeg pravila) */
+@media (min-width: 641px) {
+  .cs-box > span:last-child { font-size: 22px !important; }
 }
 
 /* Footer social links — icon + label, colour on hover in the site palette */
