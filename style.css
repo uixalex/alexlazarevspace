@@ -249,22 +249,39 @@ html { -webkit-text-size-adjust: 100%; }
   .cs-box > span:last-child { font-size: 22px !important; }
 }
 
-/* Footer social links — icon + label, colour on hover in the site palette */
+/* Footer social links — samo ikone, jedna pored druge.
+   Natpisi ostaju u HTML-u (.fl-label) ali su vizuelno sklonjeni, da
+   linkovi zadrže ime za screen readere. */
+.footer-top > div:last-child {
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px !important;
+  padding-top: 22px !important;
+}
+.fl-label {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
 .footer-link {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
+  justify-content: center;
   color: #fdf6ea;
   text-decoration: none;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 .footer-link svg {
+  width: 28px; height: 28px;
   flex-shrink: 0;
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.footer-link:hover { transform: translateX(-3px); }
-.footer-link:hover svg { transform: scale(1.18) rotate(-6deg); }
+.footer-link:hover { transform: translateY(-3px); }
+.footer-link:hover svg { transform: scale(1.12) rotate(-6deg); }
+@media (max-width: 640px) {
+  /* footer-top pada u jednu kolonu, pa ikone idu uz levu ivicu kao i ime */
+  .footer-top > div:last-child { justify-content: flex-start; padding-top: 16px !important; }
+}
 .footer-link.fl-email:hover     { color: #D8F382; } /* lime */
 .footer-link.fl-linkedin:hover  { color: #e9e4fb; } /* lavender */
 .footer-link.fl-instagram:hover { color: #FF99DC; } /* pink */
