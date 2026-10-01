@@ -3,7 +3,7 @@
     .hobby-polaroid:hover { transform: rotate(0deg) translateY(-10px) scale(1.04) !important; box-shadow: 0 24px 40px rgba(35,31,26,0.4), 0 4px 8px rgba(35,31,26,0.2) !important; z-index: 2; }
     .footer-letter { display:inline-block; font-family:'Newsreader',serif; transition: color 0.2s ease, font-family 0.2s ease, transform 0.2s ease; cursor:default; }
     .footer-letter:hover { font-family:'Manrope',sans-serif; font-style:italic; transform: translateY(-6px); }
-    .footer-letter.fl-0:hover { color:#D8F382; }
+    .footer-letter.fl-0:hover { color:#9FB8FF; }
     .footer-letter.fl-1:hover { color:#826DEE; }
     .footer-letter.fl-2:hover { color:#FF99DC; }
     .footer-letter.fl-3:hover { color:#fdf6ea; }
@@ -28,7 +28,7 @@
     .site-nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 
 body { margin: 0; background: #fdf6ea; }
-    ::selection { background: #4a6b4f; color: #fdf6ea; }
+    ::selection { background: #E8679F; color: #fdf6ea; }
 
 html { -webkit-text-size-adjust: 100%; }
     img, svg { max-width: 100%; }
@@ -79,7 +79,7 @@ body { margin: 0; background: #fdf6ea; }
        whole card — dimming the title and description with it read as disabled. */
     .footer-letter { display:inline-block; font-family:'Newsreader',serif; transition: color 0.2s ease, font-family 0.2s ease, transform 0.2s ease; cursor:default; }
     .footer-letter:hover { font-family:'Manrope',sans-serif; font-style:italic; transform: translateY(-6px); }
-    .footer-letter.fl-0:hover { color:#D8F382; }
+    .footer-letter.fl-0:hover { color:#9FB8FF; }
     .footer-letter.fl-1:hover { color:#826DEE; }
     .footer-letter.fl-2:hover { color:#FF99DC; }
     .footer-letter.fl-3:hover { color:#fdf6ea; }
@@ -131,7 +131,7 @@ body { margin: 0; background: #fdf6ea; }
     .nav-link:hover { color: rgba(255,153,220,0.75) !important; }
     .footer-letter { display:inline-block; font-family:'Newsreader',serif; transition: color 0.2s ease, font-family 0.2s ease, transform 0.2s ease; cursor:default; }
     .footer-letter:hover { font-family:'Manrope',sans-serif; font-style:italic; transform: translateY(-6px); }
-    .footer-letter.fl-0:hover { color:#D8F382; }
+    .footer-letter.fl-0:hover { color:#9FB8FF; }
     .footer-letter.fl-1:hover { color:#826DEE; }
     .footer-letter.fl-2:hover { color:#FF99DC; }
     .footer-letter.fl-3:hover { color:#fdf6ea; }
@@ -282,7 +282,7 @@ html { -webkit-text-size-adjust: 100%; }
   /* footer-top pada u jednu kolonu, pa ikone idu uz levu ivicu kao i ime */
   .footer-top > div:last-child { justify-content: flex-start; padding-top: 16px !important; }
 }
-.footer-link.fl-email:hover     { color: #D8F382; } /* lime */
+.footer-link.fl-email:hover     { color: #9FB8FF; } /* blue */
 .footer-link.fl-linkedin:hover  { color: #e9e4fb; } /* lavender */
 .footer-link.fl-instagram:hover { color: #FF99DC; } /* pink */
 .footer-link.fl-dribbble:hover  { color: #FF99DC; } /* pink */

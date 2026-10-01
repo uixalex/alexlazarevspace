@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="UI/UX & product designer focused on creativity and simplicity — turning complex ideas into clear, usable products.">
-<link rel="icon" type="image/webp" href="assets/avatar-alex.webp">
-<link rel="apple-touch-icon" href="assets/avatar-alex.webp">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/favicon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Alex">
 <meta property="og:title" content="Alex — UI/UX & Product Designer">
@@ -22,78 +22,89 @@
 <title>Alex — UI/UX & Product Designer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;0,800;1,500;1,600&family=Manrope:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="v2.css">
 </head>
 <body>
-<div style="font-family:'Manrope',sans-serif; background:#fdf6ea; color:#3a3327; width:100%; overflow-x:hidden;">
+<div class="v2">
 
   <!-- NAV -->
-  <nav class="site-nav" style="background:#D8F382; padding:32px 56px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="font-family:'Newsreader',serif; font-weight:800; font-size:34px; color:#1a1712;">Alex</div>
-    <div class="nav-links" style="display:flex; align-items:center; gap:28px; font-size:16px; font-weight:700;">
-      <a href="work.html" class="nav-link" style="color:#1a1712; text-decoration:none;">Work</a>
-      <a href="playground.html" class="nav-link" style="color:#1a1712; text-decoration:none;">Playground</a>
-      <a href="https://calendar.app.google/RJrpbeE9GZRz7fCt5" target="_blank" rel="noopener" class="nav-link" style="color:#1a1712; text-decoration:none;">Contact</a>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">Alex<span>.</span></a>
+    <div class="nav-links">
+      <a href="work.html" class="nav-link">Work</a>
+      <a href="https://calendar.app.google/RJrpbeE9GZRz7fCt5" target="_blank" rel="noopener" class="nav-link">Contact</a>
     </div>
   </nav>
 
-  <!-- HERO: bold color block -->
-  <div class="hero" style="background:#D8F382 ; overflow:hidden; display:grid; grid-template-columns:1fr; align-items:center; gap:48px; padding:120px 56px;">
+  <!-- HERO -->
+  <header class="wrap hero2">
     <div>
-      <div class="hero-badge" style="width:68px; height:68px; border-radius:11px; overflow:hidden; border:4px solid #fffdf8; margin:0 0 26px;">
-        <img src="assets/avatar-alex.webp" alt="Alex" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
-      <h1 class="hero-title" style="font-family:'Newsreader',serif; font-weight:500; font-size:68px; line-height:1.1; margin:0 0 15px; color:#1a1712; max-width:900px;">
-        <em style="font-style:italic; color:#1a1712; font-weight:700;">Product and web design</em> for teams that value <em style="font-style:italic; color:#1a1712; font-weight:700;">creativity</em> and <em style="font-style:italic; color:#1a1712; font-weight:700;">simplicity.</em>
+      <h1 class="display">
+        Product and web design<br> for teams that value<br> <em class="b">creativity</em> and <em>simplicity.</em>
       </h1>
-      <p style="font-size:20px; line-height:1.65; color:#3a4a1f; max-width:660px; margin:0 0 28px;">
-        My focus is on simplifying complexity and creating solutions that actually make sense in use, balancing usability with a strong brand direction.
-      </p>
-      <a href="https://calendar.app.google/RJrpbeE9GZRz7fCt5" target="_blank" rel="noopener" class="btn" style="display:inline-block; background:#1a1712; color:#fdf6ea; font-size:15px; font-weight:700; padding:16px 34px; border-radius:3px; text-decoration:none;">Get in Touch</a>
+      <p>My focus is on simplifying complexity and creating solutions that actually make sense in use, balancing usability with a strong brand direction.</p>
+      <a href="https://calendar.app.google/RJrpbeE9GZRz7fCt5" target="_blank" rel="noopener" class="btn2">Get in Touch <span class="arr">&rarr;</span></a>
     </div>
-  </div>
+    <div class="hero-photo">
+      <div class="frame">
+        <img src="assets/alex-portrait.jpg" alt="Alex" fetchpriority="high">
+      </div>
+    </div>
+  </header>
 
   <!-- WORK -->
-  <div id="work" class="section-pad" style="padding:96px 56px 64px;">
-    <div class="section-head" style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:40px;">
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:32px; margin:0; max-width:640px;">A <strong style="color:#1a1712;">few projects</strong> across product, web and brand design.</h2>
-      <a href="work.html" class="btn" style="display:inline-block; background:#1a1712; color:#fdf6ea; font-size:13px; font-weight:700; padding:11px 22px; border-radius:3px;">All Projects</a>
-    </div>
-    <div class="work-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
-      
-        <a href="case-study-rello.html" class="home-project" style="text-decoration:none; color:inherit; display:block;">
-          <div class="home-project-img" style="width:100%; aspect-ratio:4/4.6; overflow:hidden;">
-            <img loading="lazy" decoding="async" src="assets/project-rello.webp" alt="Rello" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <div style="margin-top:16px;">
-            <strong style="font-weight:700; font-size:18px;">Rello</strong>
-          </div>
-          <p style="font-size:13px; line-height:1.6; color:#5c5548; margin:8px 0 0;">A property chain app that keeps clients, agents, and lawyers moving in sync toward exchange.</p>
-        </a>
+  <div class="band band-white">
+  <section id="work" class="wrap sec">
+    <h2 class="sec-title display">A <strong>few projects</strong> across product, web and brand design.</h2>
+    <div class="proj-grid">
 
-        <a href="case-study-awaken180.html" class="home-project" style="text-decoration:none; color:inherit; display:block;">
-          <div class="home-project-img" style="width:100%; aspect-ratio:4/4.6; overflow:hidden;">
-            <img loading="lazy" decoding="async" src="assets/project-awaken180.webp" alt="Awaken180" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <div style="margin-top:16px;">
-            <strong style="font-weight:700; font-size:18px;">Awaken180</strong>
-          </div>
-          <p style="font-size:13px; line-height:1.6; color:#5c5548; margin:8px 0 0;">A 12-week weight-loss app that turned check-ins and coaching into one simple habit loop.</p>
-        </a>
+      <a href="case-study-rello.html" class="proj">
+        <div class="proj-img">
+          <img loading="lazy" decoding="async" src="assets/project-rello.webp" alt="Rello">
+          <span class="go">&rarr;</span>
+        </div>
+        <h3>Rello</h3>
+        <div class="tags"><span class="tag p">UI/UX Design</span><span class="tag">Real Estate &amp; Legal Tech</span></div>
+        <p>A property chain app that keeps clients, agents, and lawyers moving in sync toward exchange.</p>
+      </a>
 
-        <a href="case-study-moke.html" class="home-project" style="text-decoration:none; color:inherit; display:block;">
-          <div class="home-project-img" style="width:100%; aspect-ratio:4/4.6; overflow:hidden;">
-            <img loading="lazy" decoding="async" src="assets/project-moke.webp" alt="Moke" style="width:100%; height:100%; object-fit:cover; display:block;">
-          </div>
-          <div style="margin-top:16px;">
-            <strong style="font-weight:700; font-size:18px;">Moke</strong>
-          </div>
-          <p style="font-size:13px; line-height:1.6; color:#5c5548; margin:8px 0 0;">A website for a luxury EV brand, built to make a niche car feel like an everyday indulgence.</p>
-        </a>
-      
-      
+      <a href="case-study-awaken180.html" class="proj">
+        <div class="proj-img">
+          <img loading="lazy" decoding="async" src="assets/project-awaken180.webp" alt="Awaken180">
+          <span class="go">&rarr;</span>
+        </div>
+        <h3>Awaken180</h3>
+        <div class="tags"><span class="tag b">Mobile App</span><span class="tag">Health &amp; Wellness</span></div>
+        <p>A 12-week weight-loss app that turned check-ins and coaching into one simple habit loop.</p>
+      </a>
+
+      <a href="case-study-moke.html" class="proj">
+        <div class="proj-img">
+          <img loading="lazy" decoding="async" src="assets/project-moke.webp" alt="Moke">
+          <span class="go">&rarr;</span>
+        </div>
+        <h3>Moke</h3>
+        <div class="tags"><span class="tag p">Web Design</span><span class="tag">EV / Automotive / Lifestyle</span></div>
+        <p>A website for a luxury EV brand, built to make a niche car feel like an everyday indulgence.</p>
+      </a>
+
+      <a href="case-study-moving-portal.html" class="proj">
+        <div class="proj-img">
+          <img loading="lazy" decoding="async" src="assets/moving-portal.png" alt="The Moving Portal">
+          <span class="go">&rarr;</span>
+        </div>
+        <h3>The Moving Portal</h3>
+        <div class="tags"><span class="tag b">UI/UX &amp; Brand Design</span><span class="tag">Real Estate / Property Services</span></div>
+        <p>A survey booking platform that makes RICS home surveys simple to understand, compare, and order.</p>
+      </a>
+
     </div>
+    <div class="more-row">
+      <a href="work.html" class="btn2">More Projects <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
   </div>
 
   <!-- TESTIMONIALS — privremeno sakriveno (ukloni display:none da se vrati) -->
@@ -124,93 +135,67 @@
 
     </div>
   </div>
-
-  <!-- CTA -->
-  <div class="cta-band" style="background:#FBEAF3; padding:120px 56px; display:grid; grid-template-columns:1.3fr 0.7fr; gap:48px; align-items:center;">
-    <div>
-      <h2 class="cta-title" style="font-family:'Newsreader',serif; font-weight:500; font-size:44px; line-height:1.3; margin:0 0 32px; max-width:560px;">
-        Interested in <em style="font-style:italic; color:#1a1712; font-weight:700;">working together?</em> I'd love to hear from you.
-      </h2>
-      <a href="https://calendar.app.google/RJrpbeE9GZRz7fCt5" target="_blank" rel="noopener" class="btn" style="display:inline-block; background:#1a1712; color:#fdf6ea; font-size:15px; font-weight:700; padding:16px 34px; border-radius:3px; text-decoration:none;">Let's Chat</a>
-    </div>
-    <div style="position:relative; display:flex; align-items:center; justify-content:center; height:280px;">
-      <div class="float-slow" style="position:relative;">
-        <div style="width:210px; height:210px; border-radius:8px; overflow:hidden; border:6px solid #fdf6ea; box-shadow:0 22px 44px rgba(26,23,18,0.26);">
-          <img loading="lazy" decoding="async" src="assets/avatar-alex.webp" alt="Alex" style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div style="position:absolute; bottom:-20px; right:-28px; display:flex; align-items:center; gap:8px; background:#fffdf8; color:#1a1712; font-size:14px; font-weight:700; padding:8px 14px; border-radius:8px; box-shadow:0 14px 30px rgba(26,23,18,0.3); white-space:nowrap; z-index:3;">
-          <span style="width:9px; height:9px; border-radius:50%; background:#56b26a; display:block;"></span>
-          Open for new projects
+  <!-- GIVING BACK -->
+  <div class="band band-pink">
+  <section id="beyond" class="wrap sec">
+    <div class="give">
+      <div class="give-photo">
+        <div class="frame">
+          <img loading="lazy" decoding="async" src="assets/mentor.jpeg" alt="Mentoring students in the women in tech program">
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ABOUT + GIVING BACK -->
-  <div id="beyond" class="section-pad" style="padding:88px 56px;">
-    <div class="about-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start;">
-
       <div>
-        <div class="hero-badge" style="width:72px; height:72px; border-radius:11px; overflow:hidden; border:4px solid #fffdf8; margin:0 0 20px;">
-          <img loading="lazy" decoding="async" src="assets/hero-side-photo.webp" alt="Alex at work" style="width:100%; height:100%; object-fit:cover; display:block;">
-        </div>
-        <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:40px; margin:0 0 20px; color:#1a1712;">I am Alex</h2>
-        <div style="font-size:15.5px; line-height:1.75; color:#5c5548; max-width:520px; display:flex; flex-direction:column; gap:15px;">
-          <p style="margin:0;">I've spent <strong style="color:#1a1712;">5 years</strong> designing across web, mobile, brand identity, and product. What I care about most is pairing creativity and problem solving for products people and companies use in their real, everyday life.</p>
-          <p style="margin:0;">Mostly I work in <strong style="color:#1a1712;">Figma</strong>, along with <strong style="color:#1a1712;">Claude</strong>, I like combining them to think faster and see how my design work in practice.</p>
-          <p style="margin:0;">And when I log off, I'm usually on my bike, writing my first novel, playing guitar, or sketching funny caricatures.</p>
-        </div>
+        <h2 class="display">Giving back</h2>
+        <span class="role">Mentor, Women in Tech Program</span>
+        <p>Also, I volunteered as a UI/UX mentor in a women's empowerment program, helping high school and university students step into tech. I guide them from the basics all the way to finished projects for their portfolios, with workshops on career paths and landing that first opportunity in tech.</p>
       </div>
-
-      <div>
-        <div class="hero-badge" style="width:72px; height:72px; border-radius:11px; overflow:hidden; border:4px solid #fffdf8; margin:0 0 20px;">
-          <img loading="lazy" decoding="async" src="assets/mentor.jpeg" alt="Mentoring students in the women in tech program" style="width:100%; height:100%; object-fit:cover; object-position:center top; display:block;">
-        </div>
-        <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:40px; margin:0 0 10px; color:#1a1712;">Giving back</h2>
-        <div style="color:#4a6b4f; font-weight:700; font-size:15px; margin:0 0 18px;">Mentor, Women in Tech Program </div>
-        <p style="font-size:15.5px; line-height:1.75; color:#5c5548; max-width:520px; margin:0;">Also, I volunteered as a UI/UX mentor in a women's empowerment program, helping high school and university students step into tech. I guide them from the basics all the way to finished projects for their portfolios, with workshops on career paths and landing that first opportunity in tech.</p>
-      </div>
-
     </div>
+  </section>
   </div>
 
   <!-- RESUME -->
-  <div id="resume" class="section-pad" style="padding:96px 56px;">
-    <div class="section-head" style="display:flex; align-items:baseline; justify-content:space-between; margin-bottom:16px;">
-      <h2 style="font-family:'Newsreader',serif; font-weight:500; font-size:40px; margin:0;">Resume</h2>
-      <a href="https://drive.google.com/file/d/1EdNJ3-aQaoeslXPMoXIdEKg7okmubhxj/view?usp=sharing" target="_blank" rel="noopener" class="btn" style="display:inline-block; background:#1a1712; color:#fdf6ea; font-size:13px; font-weight:700; padding:11px 22px; border-radius:3px;; cursor:pointer;">Download PDF</a>
+  <section id="resume" class="wrap sec">
+    <div class="res-head">
+      <div>
+        <h2 class="display">Resume</h2>
+        <p>Where I've worked, what I've learned, and the knowledge I've picked up along the way.</p>
+      </div>
+      <a href="https://drive.google.com/file/d/1EdNJ3-aQaoeslXPMoXIdEKg7okmubhxj/view?usp=sharing" target="_blank" rel="noopener" class="btn2 light">Download PDF <span class="arr">&darr;</span></a>
     </div>
-    <p style="font-size:14px; line-height:1.6; color:#5c5548; margin:0 0 36px; max-width:480px;">Where I've worked, what I've learned, and the knowledge I've picked up along the way.</p>
-    
-      <div class="resume-row" style="display:grid; grid-template-columns:260px 1fr auto; gap:16px; align-items:baseline; padding:20px 0; border-top:2px solid #3a3327;">
-        <div style="font-weight:700; font-size:15px;">Founder &amp; UI/UX Designer</div>
-        <div style="color:#5c5548; font-size:14px;">Hipspace</div>
-        <div style="color:#4a6b4f; font-weight:700; font-size:13px;">June 2023 - Present</div>
+    <div class="res-list">
+      <div class="res-row">
+        <div class="t">Founder &amp; UI/UX Designer</div>
+        <div class="c">Hipspace</div>
+        <div class="d">June 2023 - Present</div>
       </div>
-    
-      <div class="resume-row" style="display:grid; grid-template-columns:260px 1fr auto; gap:16px; align-items:baseline; padding:20px 0; border-top:2px solid #3a3327;">
-        <div style="font-weight:700; font-size:15px;">Product Designer</div>
-        <div style="color:#5c5548; font-size:14px;">JS Guru</div>
-        <div style="color:#4a6b4f; font-weight:700; font-size:13px;">March 2025 - December 2025</div>
+      <div class="res-row">
+        <div class="t">Product Designer</div>
+        <div class="c">JS Guru</div>
+        <div class="d">March 2025 - December 2025</div>
       </div>
-    
-      <div class="resume-row" style="display:grid; grid-template-columns:260px 1fr auto; gap:16px; align-items:baseline; padding:20px 0; border-top:2px solid #3a3327;">
-        <div style="font-weight:700; font-size:15px;">UI/UX &amp; Product Designer</div>
-        <div style="color:#5c5548; font-size:14px;">Rhapsody Media</div>
-        <div style="color:#4a6b4f; font-weight:700; font-size:13px;">October 2020 - October 2023</div>
+      <div class="res-row">
+        <div class="t">UI/UX &amp; Product Designer</div>
+        <div class="c">Rhapsody Media</div>
+        <div class="d">October 2020 - October 2023</div>
       </div>
-    
-      <div class="resume-row" style="display:grid; grid-template-columns:260px 1fr auto; gap:16px; align-items:baseline; padding:20px 0; border-top:2px solid #3a3327;">
-        <div style="font-weight:700; font-size:15px;">UI/UX Designer</div>
-        <div style="color:#5c5548; font-size:14px;">Two Dotts</div>
-        <div style="color:#4a6b4f; font-weight:700; font-size:13px;">January 2020 - September 2020</div>
+      <div class="res-row">
+        <div class="t">UI/UX Designer</div>
+        <div class="c">Two Dotts</div>
+        <div class="d">January 2020 - September 2020</div>
       </div>
-    
-    <div style="border-top:2px solid #3a3327;"></div>
-  </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="wrap">
+    <div class="cta2">
+      <h2 class="display">Interested in <em>working together?</em> I'd love to hear from you.</h2>
+      <a href="https://calendar.app.google/RJrpbeE9GZRz7fCt5" target="_blank" rel="noopener" class="btn2">Let's Chat <span class="arr">&rarr;</span></a>
+    </div>
+  </section>
 
   <!-- FOOTER -->
-  <div id="contact" style="background:#141210; color:#fdf6ea;">
+  <div id="contact" class="footer2">
     <div class="footer-top section-pad" style="padding:64px 56px 40px; display:grid; grid-template-columns:1fr auto; gap:24px; align-items:start;">
       <div class="footer-name" style="font-weight:600; font-size:min(14vw,140px); line-height:0.9;">
         <span class="footer-letter fl-0">A</span><span class="footer-letter fl-1">l</span><span class="footer-letter fl-2">e</span><span class="footer-letter fl-3">x</span>
