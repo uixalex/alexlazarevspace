@@ -237,3 +237,4 @@ body:has(.v2) { background: #F6F0E8; }
   .v2 .res-row { grid-template-columns: minmax(0, 1fr); }
   .v2 .res-row .d { justify-self: start; }
 }
+
