@@ -160,13 +160,14 @@
       const list = sources(item);
       if (!list.length) return;
       const name = item.querySelector('figcaption span')?.textContent || '';
+      const alt = item.querySelector('.lab-media img')?.alt || name;
       const scroll = item.dataset.mode === 'scroll';
       stage.innerHTML = '';
       slides = [];
       if (scroll) {
         const wrap = document.createElement('div');
         wrap.className = 'lab-scroll';
-        list.forEach((src) => wrap.appendChild(media(src, name)));
+        list.forEach((src) => wrap.appendChild(media(src, alt)));
         stage.appendChild(wrap);
         stage.scrollTop = 0;
         count.textContent = 'SCROLL';
@@ -174,7 +175,7 @@
         list.forEach((src) => {
           const s = document.createElement('div');
           s.className = 'lab-slide';
-          s.appendChild(media(src, name));
+          s.appendChild(media(src, alt));
           stage.appendChild(s);
           slides.push(s);
         });

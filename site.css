@@ -270,7 +270,7 @@ sup { font-size: 0.5em; vertical-align: top; position: relative; top: 0.35em; }
 .cs-next .big { display: block; }
 
 /* ---------- LAB: masonry mreža eksperimenata ---------- */
-.lab-grid { columns: 4 240px; column-gap: 20px; padding-top: 40px; }
+.lab-grid { columns: 4 220px; column-gap: 20px; padding-top: 40px; }
 .lab-item { break-inside: avoid; margin: 0 0 28px; }
 .lab-media { position: relative; overflow: hidden; border-radius: 6px; background: #151515; }
 .lab-media img, .lab-ph { display: block; width: 100%; transition: transform 1s var(--ease-out); }
