@@ -1,4 +1,4 @@
-// Sajt: preloader, reveal animacije, scramble tekst, kursor, sat, skrol reveal, work preview
+// Sajt: preloader, reveal animacije, scramble tekst, kursor, skrol reveal, work preview
 (() => {
   const root = document.documentElement;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -38,14 +38,6 @@
     requestAnimationFrame(tick);
   }
 
-  // SAT (lokalno vrijeme)
-  const clock = document.querySelector('.clock');
-  if (clock) {
-    const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Europe/Belgrade' });
-    const upd = () => { clock.textContent = fmt.format(new Date()); };
-    upd();
-    setInterval(upd, 1000);
-  }
 
   // SCRAMBLE tekst na hover
   const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&*/<>';
