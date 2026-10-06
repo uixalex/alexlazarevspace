@@ -204,6 +204,7 @@ sup { font-size: 0.5em; vertical-align: top; position: relative; top: 0.35em; }
 /* ---------- CASE STUDY ---------- */
 .cs-top { display: flex; justify-content: space-between; align-items: center; padding-top: 48px; color: var(--dim); }
 .cs-top a { color: var(--fg); position: relative; }
+.cs-top + .p-head { padding-top: 10px; }
 .cs-name { padding: 10px 0 18px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; }
 .cs-name .big { font-size: clamp(52px, 11vw, 200px); }
 .btn-t { display: inline-flex; align-items: center; gap: 10px; border: 1px solid var(--fg); padding: 11px 16px; white-space: nowrap; transition: background .3s ease, color .3s ease; }
