@@ -75,7 +75,7 @@
       requestAnimationFrame(loop);
     };
     loop();
-    document.querySelectorAll('a, .photo').forEach((el) => {
+    document.querySelectorAll('a, .photo, .lab-media, .lab-lb button').forEach((el) => {
       el.addEventListener('mouseenter', () => cursor.classList.add('big'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
     });
@@ -120,5 +120,119 @@
       row.addEventListener('mouseleave', () => { preview.classList.remove('on'); });
     });
     document.querySelector('.w-list').addEventListener('mouseleave', () => { running = false; });
+  }
+
+  // LAB: lightbox (jedna slika, galerija ili scroll za koncept sajta)
+  const lb = document.querySelector('.lab-lb');
+  if (lb) {
+    const stage = lb.querySelector('.lab-lb-stage');
+    const title = lb.querySelector('.lab-lb-title');
+    const count = lb.querySelector('.lab-lb-count');
+    const closeBtn = lb.querySelector('.lab-lb-close');
+    let slides = [], idx = 0, lastFocus = null;
+
+    // "ph-2" = placeholder, sve ostalo = putanja do slike
+    const media = (src, alt) => {
+      if (/^ph-/.test(src)) {
+        const d = document.createElement('div');
+        d.className = 'lab-ph ' + src;
+        return d;
+      }
+      const im = document.createElement('img');
+      im.src = src; im.alt = alt; im.decoding = 'async';
+      return im;
+    };
+    const sources = (item) => {
+      if (item.dataset.gallery) return item.dataset.gallery.split(',').map((s) => s.trim()).filter(Boolean);
+      const own = item.querySelector('.lab-media img, .lab-media .lab-ph');
+      if (!own) return [];
+      return [own.tagName === 'IMG' ? own.getAttribute('src') : [...own.classList].find((c) => c.startsWith('ph-'))];
+    };
+    const pad = (n) => String(n).padStart(2, '0');
+
+    const show = (i) => {
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle('on', k === idx));
+      count.textContent = `${pad(idx + 1)} / ${pad(slides.length)}`;
+    };
+
+    const open = (item) => {
+      const list = sources(item);
+      if (!list.length) return;
+      const name = item.querySelector('figcaption span')?.textContent || '';
+      const scroll = item.dataset.mode === 'scroll';
+      stage.innerHTML = '';
+      slides = [];
+      if (scroll) {
+        const wrap = document.createElement('div');
+        wrap.className = 'lab-scroll';
+        list.forEach((src) => wrap.appendChild(media(src, name)));
+        stage.appendChild(wrap);
+        stage.scrollTop = 0;
+        count.textContent = 'SCROLL';
+      } else {
+        list.forEach((src) => {
+          const s = document.createElement('div');
+          s.className = 'lab-slide';
+          s.appendChild(media(src, name));
+          stage.appendChild(s);
+          slides.push(s);
+        });
+        show(0);
+        if (slides.length === 1) count.textContent = '';
+      }
+      title.textContent = name;
+      lb.classList.toggle('scroll', scroll);
+      lb.classList.toggle('single', !scroll && slides.length === 1);
+      lastFocus = document.activeElement;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lb-lock');
+      closeBtn.focus({ preventScroll: true });
+    };
+
+    const close = () => {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lb-lock');
+      if (lastFocus) lastFocus.focus({ preventScroll: true });
+    };
+
+    document.querySelectorAll('.lab-item').forEach((item) => {
+      const list = sources(item);
+      if (list.length > 1) {
+        const b = document.createElement('span');
+        b.className = 'lab-badge mono';
+        b.textContent = item.dataset.mode === 'scroll' ? 'SITE' : `+${list.length - 1}`;
+        item.querySelector('.lab-media').appendChild(b);
+      }
+      item.tabIndex = 0;
+      item.setAttribute('role', 'button');
+      item.addEventListener('click', () => open(item));
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(item); }
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    lb.querySelector('.lab-lb-prev').addEventListener('click', () => show(idx - 1));
+    lb.querySelector('.lab-lb-next').addEventListener('click', () => show(idx + 1));
+    // klik na prazan prostor zatvara
+    stage.addEventListener('click', (e) => {
+      if (e.target === stage || e.target.classList.contains('lab-slide')) close();
+    });
+    addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (slides.length > 1 && e.key === 'ArrowLeft') show(idx - 1);
+      if (slides.length > 1 && e.key === 'ArrowRight') show(idx + 1);
+    });
+    // swipe na telefonu
+    let sx = 0;
+    stage.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - sx;
+      if (slides.length > 1 && Math.abs(dx) > 40) show(idx + (dx < 0 ? 1 : -1));
+    });
   }
 })();
