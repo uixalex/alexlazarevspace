@@ -81,7 +81,7 @@
     });
   }
 
-  // OTKRIVANJE NA SKROL (.sr = zavjesa, .sf = fade)
+  // OTKRIVANJE NA SKROL (.sr = brzi fade slika, .sf = fade)
   const srEls = document.querySelectorAll('.sr, .sf');
   if (srEls.length) {
     if (reduce || !('IntersectionObserver' in window)) {
@@ -93,33 +93,28 @@
           en.target.classList.add('in');
           io.unobserve(en.target);
         });
-      }, { rootMargin: '0px 0px -8% 0px' });
+      }, { rootMargin: '0px 0px 0px 0px' });
       srEls.forEach((el) => io.observe(el));
     }
   }
 
-  // WORK: slika projekta prati kursor
-  const preview = document.querySelector('.w-preview');
-  if (preview && window.matchMedia('(pointer: fine)').matches) {
-    const imgs = preview.querySelectorAll('img');
-    let px = 0, py = 0, tx = 0, ty = 0, running = false;
-    const follow = () => {
-      px += (tx - px) * 0.14;
-      py += (ty - py) * 0.14;
-      preview.style.left = px + 'px';
-      preview.style.top = py + 'px';
-      if (running) requestAnimationFrame(follow);
-    };
-    document.querySelectorAll('.w-row').forEach((row) => {
-      row.addEventListener('mouseenter', (e) => {
-        if (!running) { px = tx = e.clientX; py = ty = e.clientY; running = true; follow(); }
-        imgs.forEach((im) => im.classList.toggle('on', im.dataset.i === row.dataset.i));
-        preview.classList.add('on');
+  // LAB: filter tabovi (kategorije bez stavki se sakrivaju)
+  const tabs = document.querySelectorAll('.lab-tab');
+  if (tabs.length) {
+    const items = [...document.querySelectorAll('.lab-item')];
+    tabs.forEach((tab) => {
+      const cat = tab.dataset.cat;
+      const n = cat === 'all' ? items.length : items.filter((it) => it.dataset.cat === cat).length;
+      tab.querySelector('sup').textContent = String(n).padStart(2, '0');
+      tab.hidden = n === 0;
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => {
+          t.classList.toggle('is-active', t === tab);
+          t.setAttribute('aria-pressed', t === tab);
+        });
+        items.forEach((it) => { it.hidden = cat !== 'all' && it.dataset.cat !== cat; });
       });
-      row.addEventListener('mousemove', (e) => { tx = e.clientX; ty = e.clientY; });
-      row.addEventListener('mouseleave', () => { preview.classList.remove('on'); });
     });
-    document.querySelector('.w-list').addEventListener('mouseleave', () => { running = false; });
   }
 
   // LAB: lightbox (jedna slika, galerija ili scroll za koncept sajta)
