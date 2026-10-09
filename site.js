@@ -98,21 +98,24 @@
     }
   }
 
-  // LAB: filter tabovi (kategorije bez stavki se sakrivaju)
+  // LAB: filter tabovi (opis grupe ispod tabova, prazna grupa = "coming soon")
   const tabs = document.querySelectorAll('.lab-tab');
   if (tabs.length) {
     const items = [...document.querySelectorAll('.lab-item')];
+    const desc = document.querySelector('.lab-desc');
+    const empty = document.querySelector('.lab-empty');
     tabs.forEach((tab) => {
       const cat = tab.dataset.cat;
       const n = cat === 'all' ? items.length : items.filter((it) => it.dataset.cat === cat).length;
       tab.querySelector('sup').textContent = String(n).padStart(2, '0');
-      tab.hidden = n === 0;
       tab.addEventListener('click', () => {
         tabs.forEach((t) => {
           t.classList.toggle('is-active', t === tab);
           t.setAttribute('aria-pressed', t === tab);
         });
         items.forEach((it) => { it.hidden = cat !== 'all' && it.dataset.cat !== cat; });
+        if (desc) desc.textContent = tab.dataset.desc;
+        if (empty) empty.hidden = n > 0;
       });
     });
   }
@@ -194,7 +197,8 @@
       if (lastFocus) lastFocus.focus({ preventScroll: true });
     };
 
-    document.querySelectorAll('.lab-item').forEach((item) => {
+    // .lab-item kao <a> = link (case study / live sajt), bez lightboxa
+    document.querySelectorAll('.lab-item:not(a)').forEach((item) => {
       const list = sources(item);
       if (list.length > 1) {
         const b = document.createElement('span');
