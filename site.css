@@ -235,6 +235,8 @@ sup { font-size: 0.5em; vertical-align: top; position: relative; top: 0.35em; }
 
 .cs-body { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 40px; align-items: start; }
 .cs-info { position: sticky; top: 24px; display: grid; gap: 36px; }
+.cs-info .btn-t { justify-self: start; margin-top: -12px; background: var(--fg); color: var(--bg); }
+.cs-info .btn-t:hover { background: transparent; color: var(--fg); }
 .spec { margin: 0; border-top: 1px solid var(--line); }
 .spec div { display: grid; grid-template-columns: 110px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
 .spec dt { color: var(--dim); }
